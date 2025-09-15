@@ -9,6 +9,7 @@ function verificarIntento() {
     console.log(numeroSecreto);
     if(numeroDeUsuario === numeroSecreto) {
         asignarTextoElemento('p', `Acertaste el numero en  ${numeroIntentos} ${(numeroIntentos==1) ? ' intento' : ' intentos'}`);
+        document.getElementById('reiniciar').removeAttribute('disabled');
     } else{
         if(numeroDeUsuario < numeroSecreto) {
             asignarTextoElemento('p', 'El numero secreto es mayor');
@@ -16,11 +17,14 @@ function verificarIntento() {
             asignarTextoElemento('p', 'El numero secreto es menor');
         }
         numeroIntentos++;
+        limpiarCampo();
     }
 }
 function generarNumeroAleatorio() {
     return Math.floor(Math.random() * 10) + 1;
 }
+function limpiarCampo() {
+    document.querySelector('#valorUsuario').value='';}
 numeroSecreto = generarNumeroAleatorio();
 console.log(numeroSecreto);
 asignarTextoElemento('h1', 'Proyecto Inicial - Logica de Programacion 2');
