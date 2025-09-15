@@ -1,4 +1,4 @@
-
+let listadeNumerosSorteados = [];
 
 function asignarTextoElemento(elemento, texto) {
     let titulo = document.querySelector(elemento);
@@ -21,7 +21,13 @@ function verificarIntento() {
     }
 }
 function generarNumeroAleatorio() {
-    return Math.floor(Math.random() * 10) + 1;
+    let numeroGenerado= Math.floor(Math.random() * 10) + 1;
+    if(listadeNumerosSorteados.includes(numeroGenerado)){
+        return generarNumeroAleatorio();
+    }else{
+        listadeNumerosSorteados.push(numeroGenerado);
+        return numeroGenerado;
+    }
 }
 function limpiarCampo() {
     document.querySelector('#valorUsuario').value='';}
