@@ -1,4 +1,4 @@
-let numeroIntentos = 1;
+
 
 function asignarTextoElemento(elemento, texto) {
     let titulo = document.querySelector(elemento);
@@ -25,7 +25,21 @@ function generarNumeroAleatorio() {
 }
 function limpiarCampo() {
     document.querySelector('#valorUsuario').value='';}
-numeroSecreto = generarNumeroAleatorio();
-console.log(numeroSecreto);
-asignarTextoElemento('h1', 'Proyecto Inicial - Logica de Programacion 2');
-asignarTextoElemento('p', 'Adivina el numero');
+function accionesIniciales() {
+    asignarTextoElemento('h1', 'Proyecto Inicial - Logica de Programacion 2');
+    asignarTextoElemento('p', 'Adivina el numero');
+    numeroSecreto = generarNumeroAleatorio();
+    numeroIntentos = 1;
+}
+function reiniciarJuego() {
+    //limpiarcampo
+    limpiarCampo();
+    //mostrar el mensaje inicial
+    //generar numero secreto
+    //reiniciar contador de intentos
+    accionesIniciales();
+    //deshabilitar el boton de nuevo juego
+    document.querySelector('#reiniciar').setAttribute('disabled', true);
+}
+
+accionesIniciales();
